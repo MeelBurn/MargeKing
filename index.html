@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta charset="utf-8">
+    <base target="_top">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style type="text/css">
+    a{
+    color: black;
+    text-decoration: none;
+    }
+    
+   .material-icons{
+   font-size: 18px;
+   cursor: pointer;
+   padding: 5px;
+   border-style: solid;
+   border-width: 1px;
+   font-weight: bold;
+   }
+   
+   
+   
+
+   
+    #mailSend{
+     padding-top: 10px;
+     
+     font-size: 15px;
+     font-family: Arial, Helvetica, sans-serif;
+     height: 200px;
+     border-style: solid;
+     border-width: 1px;
+     width: 100%;
+     
+    
+     
+    }
+    #mailTopic{
+    text-align: center;
+    padding-top: 10px;
+    border-style: solid;
+     border-width: 1px;
+     
+     font-size: 18px;
+     font-family: Arial, Helvetica, sans-serif;
+      height: 30px;
+      width: 100%;
+  
+    
+    }
+    #b01,#b02 {
+  background-color: #ff6600; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-weight: bold;
+  
+ 
+}
+#textEditor{
+border: solid;
+padding:10px;
+border-width: 1px;
+
+
+
+}
+
+
+    </style>
+  </head>
+  
+  <body>
+  
+  <div id="mainDiv">
+  
+            <div id="mailTopic" contenteditable="true"> Topic</div> 
+           <br>
+    
+         <div id="textEditor">
+    
+   <a href="javascript:void(0)" onclick="format('bold')"> <i class="material-icons">format_bold</i> </a>
+   <a href="javascript:void(0)" onclick="format('italic')"> <i class="material-icons">format_italic</i></a>
+   <a href="javascript:void(0)" onclick="format('underline')"> <i class="material-icons">format_underlined</i></a>
+   <a href="javascript:void(0)" onclick="format('insertunorderedlist')"> <i class="material-icons">format_list_bulleted</i></a>
+    
+    </div>
+    
+    <br>
+    <div id="mailSend" contenteditable="true"> Type here... </div>
+    
+    
+    
+<br><br>
+<button type="button" id ="b01" onclick="passMailing()">Send mailing</button>
+<button type="button" id ="b02" onclick="changePage()">Main Menu</button>
+
+
+</div>
+
+<script>
+
+function passMailing(){
+    var tx01 = $("#mailSend").html();
+    var tx02 = $("#mailTopic").text();
+    google.script.run.sendMailing(tx01,tx02);
+
+}
+
+function format(command, value) {
+    document.execCommand(command, false, value);
+ }
+ function changePage(){
+ google.script.run.openDialog();
+ 
+ 
+ }
+
+
+</script>
+
+
+  </body>
+</html>
+
+
