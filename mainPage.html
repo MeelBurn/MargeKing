@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <base target="_top">
+    <style>
+       .material-icons{
+   font-size: 25px;
+   cursor: pointer;
+   padding: 5px;
+   color:#5c5c3d;
+   
+   font-weight: bold;
+   }
+    p{
+    color:#5c5c3d;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    }
+
+    #options{
+    float:left;
+    margin: 20px;
+    width:30%;
+    }
+    #templates{
+   
+    margin:20px;
+    width:30%;
+    float:left;
+    
+    }
+    #robocza{
+    float:left;
+   
+   
+    
+    }
+    #robocza2{
+    float:left;
+padding: 10px;
+    }
+    #mailsToSend {
+    
+     padding: 10px;
+     margin:20px;
+     margin-bottom:10px;
+     font-size: 20px;
+     font-family: Arial, Helvetica, sans-serif;
+     background-color:#f5f5f0;
+    float:left;
+     width: 90%;
+     border:solid;
+    border-width:1px;
+    border-color:#b8b894;
+    }
+    
+    #upgradeButton{
+    padding: 10px;
+     font-size: 20px;
+     font-family: Arial, Helvetica, sans-serif;
+    float:left;
+   
+    }
+    
+    #b02{
+    padding: 7px;
+    background-color: #f5f5f0; /* Green */
+  border: solid;
+  border-color:#b8b894;
+  border-width:1px;
+  border-radius:3px;
+  color: #009900;
+  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  font-weight: bold;
+  
+    
+    
+    }
+   .button :hover{
+    background-color: white;
+    
+    }
+    #b01,#b03{
+    margin:5px;
+    float:left;
+  background-color: #ff6600;
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  width:50%;
+  
+    }
+    #m1{
+    
+    font-size: 15px;
+    
+    }
+    
+    </style>
+  </head>
+  <body>
+    
+    <div id="mailsToSend">
+    
+         <div id="robocza">
+    
+         <p id="m1"> </p>
+         
+         </div>
+         
+         <div id="robocza2">
+         
+         <button type="button" id ="b02" >UPGRADE</button>
+       
+          </div>
+          
+    
+    </div>
+    
+   
+    <div id="templates">
+    
+   <div id="senderName">
+   
+   <p> Sender name </p>
+   <div id="inputBoy">
+ <input type="text" id="fname" name="fname">
+ </div>
+ <br>
+ 
+ 
+   <p> Email templates </p>
+   <div id="inputBoy2">
+   <input list="browsers" name="browser">
+ <datalist id="browsers">
+    <option value="Internet Explorer">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+  </datalist>
+ <br><br>
+ 
+ 
+
+   </div>
+
+   </div>
+   <div id="changer">
+   
+    <button type="button" id ="b01" onclick="changePage()">Create templates</button>
+    <br><br>
+    
+    
+    </div>
+    <br><br><br>
+   
+    <i class="material-icons">perm_identity</i>
+    <i class="material-icons">notifications</i>
+    <i class="material-icons">drag_indicator</i>
+    
+   </div>
+    
+    <div id="options">
+    <p>Options</p>
+    
+    <input type="checkbox" id="tracking1">
+  <label for="tracking1"> Track emails opened and clicked </label>
+  <br><br>
+  <p> Summary </p>
+  
+  <br><br><br><br>
+  <br><br><br>
+  <button type="button" id ="b03" >Preview mails</button>
+  
+  
+ 
+    </div>
+    
+    <script>
+    countMails();
+    
+    function countMails(){
+    var maxMails = 100;
+    var sentMails = maxMails - 30;
+    
+    var score = "You can email  " + sentMails +"/"+maxMails+" recipients with MargeKing";
+    document.getElementById("m1").innerHTML = score;
+    }
+    
+    function changePage(){
+    
+    google.script.run.openDialog2();
+    }
+    
+    
+    
+    </script>
+    
+  </body>
+</html>
+
+
